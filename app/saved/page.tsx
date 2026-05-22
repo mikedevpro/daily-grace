@@ -18,22 +18,21 @@ const savedPrayers = [
 
 export default function SavedPage() {
   return (
-    
-      <main className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-rose-100 px-5 py-8 pb-28">
-        <PageShell>
+    <main className="app-screen px-5 py-8 pb-28">
+      <PageShell>
         <section className="mx-auto max-w-md">
           <div className="mb-8 flex items-center justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-amber-700">
+              <p className="app-eyebrow text-sm uppercase tracking-[0.3em]">
                 Daily Grace
               </p>
 
-              <h1 className="mt-2 text-4xl font-bold text-stone-900">
+              <h1 className="mt-2 text-4xl font-bold">
                 Saved Prayers
               </h1>
             </div>
 
-            <div className="rounded-full bg-rose-100 p-3">
+            <div className="app-accent-panel rounded-full p-3">
               <Heart className="h-5 w-5 text-rose-500" />
             </div>
           </div>
@@ -45,25 +44,24 @@ export default function SavedPage() {
                 whileHover={{ y: -4, scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 260, damping: 18 }}
-                className="rounded-[2rem] bg-white/70 p-5 shadow-lg backdrop-blur"
+                className="app-surface rounded-[2rem] p-5"
               >
                 <div className="mb-3 flex items-center justify-between">
-                  <h2 className="text-xl font-semibold text-stone-900">
+                  <h2 className="text-xl font-semibold">
                     {prayer.title}
                   </h2>
 
                   <Heart className="h-5 w-5 fill-rose-400 text-rose-400" />
                 </div>
 
-                <p className="leading-7 text-stone-600">{prayer.text}</p>
+                <p className="app-muted leading-7">{prayer.text}</p>
               </motion.div>
             ))}
           </div>
         </section>
-        </PageShell>
+      </PageShell>
 
-        <MobileNav />
-      </main>
-    
+      <MobileNav />
+    </main>
   );
 }

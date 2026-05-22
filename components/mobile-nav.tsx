@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BookOpen, Heart, Home, PenLine } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const navItems = [
   {
@@ -31,7 +32,7 @@ export function MobileNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-5 left-1/2 grid w-[90%] max-w-md -translate-x-1/2 grid-cols-4 rounded-full bg-stone-900/95 px-4 py-3 text-white shadow-2xl shadow-stone-500/30 backdrop-blur">
+    <nav className="app-nav fixed bottom-5 left-1/2 grid w-[92%] max-w-md -translate-x-1/2 grid-cols-5 rounded-full px-4 py-3 backdrop-blur">
       {navItems.map((item) => {
         const Icon = item.icon;
         const active = pathname === item.href;
@@ -41,7 +42,7 @@ export function MobileNav() {
             key={item.href}
             href={item.href}
             className={`flex flex-col items-center gap-1 transition ${
-              active ? "text-amber-200" : "text-stone-300"
+              active ? "app-nav-active" : ""
             }`}
           >
             <Icon className="h-5 w-5" />
@@ -49,6 +50,7 @@ export function MobileNav() {
           </Link>
         );
       })}
+      <ThemeToggle />
     </nav>
   );
 }

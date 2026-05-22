@@ -2,19 +2,20 @@
 
 import { PrayerCard } from "@/components/prayer-card";
 import { PageShell } from "@/components/page-shell";
+import { MobileNav } from "@/components/mobile-nav";
 import { prayers } from "@/lib/data";
 
 export default function PrayersPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 via-slate-100 to-slate-200 px-5 py-8 text-slate-900">
+    <main className="app-screen app-screen-cool px-5 py-8 pb-28">
       <PageShell>
-        <section className="mx-auto max-w-3xl rounded-[2rem] bg-white/80 p-8 shadow-xl shadow-slate-300/50 backdrop-blur">
+        <section className="app-surface mx-auto max-w-3xl rounded-[2rem] p-8">
           <div className="mb-6">
-            <p className="text-sm font-medium uppercase tracking-[0.3em] text-slate-500">
+            <p className="app-eyebrow text-sm font-medium uppercase tracking-[0.3em]">
               Prayers
             </p>
             <h1 className="mt-3 text-3xl font-bold">Prayer Collection</h1>
-            <p className="mt-2 text-slate-600">
+            <p className="app-muted mt-2">
               A calm space to speak, listen, and return to your faith throughout
               the day.
             </p>
@@ -33,6 +34,7 @@ export default function PrayersPage() {
           </div>
         </section>
       </PageShell>
+      <MobileNav />
     </main>
   );
 }

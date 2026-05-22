@@ -21,29 +21,29 @@ export function PrayerCard({
       whileHover={{ y: -4, scale: 1.01 }}
       whileTap={{ scale: 0.98 }}
       transition={{ type: "spring", stiffness: 260, damping: 18 }}
-      className="rounded-[2rem] bg-white/70 p-5 shadow-lg backdrop-blur"
+      className="app-surface rounded-[2rem] p-5"
     >
       <div className="mb-3 flex items-start justify-between gap-4">
         <div>
           {category && (
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">
+            <p className="app-eyebrow mb-2 text-xs font-semibold uppercase tracking-[0.2em]">
               {category}
             </p>
           )}
 
-          <h2 className="text-xl font-semibold text-stone-900">{title}</h2>
+          <h2 className="text-xl font-semibold">{title}</h2>
         </div>
 
         <Heart
           className={`h-5 w-5 shrink-0 ${
             favorited
               ? "fill-rose-400 text-rose-400"
-              : "text-stone-300"
+              : "text-[var(--muted)]"
           }`}
         />
       </div>
 
-      <p className="leading-7 text-stone-600">{text}</p>
+      <p className="app-muted leading-7">{text}</p>
     </motion.div>
   );
 }

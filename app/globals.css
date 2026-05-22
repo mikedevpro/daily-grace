@@ -1,8 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+  --background: #fffaf3;
+  --foreground: #241c15;
+  --muted: #6b5f55;
+  --eyebrow: #a15c07;
+  --surface: rgb(255 255 255 / 0.76);
+  --surface-strong: rgb(255 255 255 / 0.9);
+  --surface-border: rgb(120 72 28 / 0.12);
+  --surface-shadow: rgb(194 101 32 / 0.18);
+  --accent-surface: rgb(254 243 199 / 0.86);
+  --accent-foreground: #854d0e;
+  --accent-soft: #fff7ed;
+  --icon-foreground: #a15c07;
+  --nav-background: rgb(28 25 23 / 0.96);
+  --nav-foreground: #e7e5e4;
+  --nav-active: #fde68a;
+  --screen-from: #fffbeb;
+  --screen-via: #fff7ed;
+  --screen-to: #ffe4e6;
+  --screen-cool-from: #f8fafc;
+  --screen-cool-via: #f1f5f9;
+  --screen-cool-to: #e2e8f0;
 }
 
 @theme inline {
@@ -13,14 +33,127 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --background: #16130f;
+    --foreground: #f7efe3;
+    --muted: #c8b9a6;
+    --eyebrow: #f4b95d;
+    --surface: rgb(41 32 25 / 0.8);
+    --surface-strong: rgb(49 40 32 / 0.92);
+    --surface-border: rgb(252 211 77 / 0.14);
+    --surface-shadow: rgb(0 0 0 / 0.38);
+    --accent-surface: rgb(92 61 29 / 0.7);
+    --accent-foreground: #fde68a;
+    --accent-soft: rgb(78 48 32 / 0.78);
+    --icon-foreground: #f4b95d;
+    --nav-background: rgb(250 244 232 / 0.94);
+    --nav-foreground: #57534e;
+    --nav-active: #9a3412;
+    --screen-from: #15110d;
+    --screen-via: #241912;
+    --screen-to: #321720;
+    --screen-cool-from: #10141d;
+    --screen-cool-via: #172033;
+    --screen-cool-to: #25172a;
   }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #16130f;
+  --foreground: #f7efe3;
+  --muted: #c8b9a6;
+  --eyebrow: #f4b95d;
+  --surface: rgb(41 32 25 / 0.8);
+  --surface-strong: rgb(49 40 32 / 0.92);
+  --surface-border: rgb(252 211 77 / 0.14);
+  --surface-shadow: rgb(0 0 0 / 0.38);
+  --accent-surface: rgb(92 61 29 / 0.7);
+  --accent-foreground: #fde68a;
+  --accent-soft: rgb(78 48 32 / 0.78);
+  --icon-foreground: #f4b95d;
+  --nav-background: rgb(250 244 232 / 0.94);
+  --nav-foreground: #57534e;
+  --nav-active: #9a3412;
+  --screen-from: #15110d;
+  --screen-via: #241912;
+  --screen-to: #321720;
+  --screen-cool-from: #10141d;
+  --screen-cool-via: #172033;
+  --screen-cool-to: #25172a;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.app-screen {
+  min-height: 100vh;
+  background-image: linear-gradient(135deg, var(--screen-from), var(--screen-via), var(--screen-to));
+  color: var(--foreground);
+  transition: background 220ms ease, color 220ms ease;
+}
+
+.app-screen-cool {
+  background-image: linear-gradient(135deg, var(--screen-cool-from), var(--screen-cool-via), var(--screen-cool-to));
+}
+
+.app-surface {
+  border: 1px solid var(--surface-border);
+  background: var(--surface);
+  box-shadow: 0 24px 60px var(--surface-shadow);
+  backdrop-filter: blur(18px);
+}
+
+.app-surface-strong {
+  background: var(--surface-strong);
+}
+
+.app-accent-panel {
+  background: var(--accent-surface);
+  color: var(--accent-foreground);
+}
+
+.app-eyebrow {
+  color: var(--eyebrow);
+}
+
+.app-muted {
+  color: var(--muted);
+}
+
+.app-icon-chip {
+  background: var(--surface);
+  color: var(--icon-foreground);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+}
+
+.app-primary-button {
+  background: var(--foreground);
+  color: var(--background);
+}
+
+.app-nav {
+  background: var(--nav-background);
+  color: var(--nav-foreground);
+  box-shadow: 0 18px 50px var(--surface-shadow);
+}
+
+.app-nav-active {
+  color: var(--nav-active);
+}
+
+.theme-toggle-sun {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle-moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-toggle-sun {
+  display: block;
 }
